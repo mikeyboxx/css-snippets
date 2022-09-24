@@ -1,3 +1,10 @@
+:root {
+    --background-color: rgb(32, 3, 3);
+    --font-color-1: white;
+    --font-color-2: purple;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +16,11 @@ html {
     font-size: 16px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.2;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--font-color-1);
 }
 
 
@@ -45,11 +57,11 @@ html {
 } 
 
 .card h2 {
-    border: 2px solid black;
+    border: 2px solid var(--font-color-1);
     border-radius: 5px;
     margin: -15px 10px 0px 10px;
     padding-left: 10px;
-    background-color: white;
+    background-color: var(--background-color);
 }
 
 .card p {
@@ -68,6 +80,8 @@ html {
     padding: 8px 10px 8px 10px;
     /* wraps text in pre tags. Sequences of white space are preserved. Lines are only broken at newline characters in the source */
     white-space: pre-wrap;
+    /* highlights entire text upon click, which is used to easily copy CSS code snippet to clipboard */
+    user-select: all;
 } 
 
 .footer {
