@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+html {
+    font-size: 16px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.2;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1 {
+     flex: 50%;
+    }
+    
+.header p {
+    text-align: center;
+    font-size: .85em;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 30%;
+    border: 2px dashed;
+    margin: 20px 8px;
+} 
+
+.card h2 {
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: -15px 10px 0px 10px;
+    padding-left: 10px;
+    background-color: white;
+}
+
+.card p {
+    font-size: .85em;
+    margin: 10px 15px 5px 15px;
+}
+
+.card pre {
+    font-size: .9em;
+    flex: 100%;
+    display: flex;
+    align-items: center;
+    border :1px solid black;
+    border-radius: 5px;
+    margin: 10px 15px 15px 15px;
+    padding: 8px 10px 8px 10px;
+    /* wraps text in pre tags. Sequences of white space are preserved. Lines are only broken at newline characters in the source */
+    white-space: pre-wrap;
+} 
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
+}
