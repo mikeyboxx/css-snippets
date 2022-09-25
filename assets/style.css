@@ -1,90 +1,181 @@
 :root {
-    --background-color: rgb(32, 3, 3);
-    --font-color-1: white;
-    --font-color-2: purple;
+    /* colors for desktop */
+    --body-text-font-color: black;
+    --body-background-gradient: linear-gradient(135deg, orange 30%, cyan);
+    --card-background-color: lemonchiffon;
+    --card-text-font-color: black;
+    --card-h2-background-color: lemonchiffon;
+    --card-border-color: black;
+    --card-pre-background-gradient: linear-gradient(135deg, lemonchiffon 30%, cyan);
+
+    /* colors for tablet */
+    --body-text-font-color-2: black;
+    --body-background-gradient-2: linear-gradient(135deg, lemonchiffon 30%, cyan);
+    --card-background-color-2: grey;
+    --card-text-font-color-2: white;
+    --card-h2-background-color-2: grey;
+    --card-border-color-2: white;
+    --card-pre-background-gradient-2: linear-gradient(135deg, lemonchiffon 30%, cyan);
+
+    /* colors for mobile phone */
+    --body-text-font-color-3: black;
+    --body-background-gradient-3: linear-gradient(135deg, red 1%, white);
+    --card-background-color-3: grey;
+    --card-text-font-color-3: white;
+    --card-h2-background-color-3: black;
+    --card-border-color-3: white;
+    --card-pre-background-gradient-3: linear-gradient(135deg, white 30%, lemonchiffon);
 }
 
-
+/* reset the box-sizing, margin, and padding for entire document */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 
+/* reset the font family, font size, and spacing between lines, for entire document */
 html {
     font-size: 16px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.2;
 }
 
+/* set background and text color for document */
 body {
-    background-color: var(--background-color);
-    color: var(--font-color-1);
+    margin: 0 15px;
+    color: var(--body-text-font-color);
+    background: var(--body-background-gradient);
 }
 
-
+/* make the header a flex container, with children laid out in a column */
 .header {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     align-items: center;
-}
-
-.header h1 {
-     flex: 50%;
-    }
-    
-.header p {
     text-align: center;
-    font-size: .85em;
-    width: 70%;
-    margin-top: 20px;
 }
 
+/* set the width and center the page instructions */
+.header p {
+    max-width: 70%;
+    margin-top: 20px;
+    font-size: .85em;
+}
+
+/* Make the section a flex container, laid out in a row and centered */
 .card-container {
+    margin: 30px 0 15px 15px;
+    padding: 10px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin-top: 40px;
 }
 
+/* make the section a flex container, laid out in a column and change appearance of the border.  */
 .card {
+    flex: 1 1 30%;
+    /* guarantee the min width, preventing unintentional wrapping */
+    min-width: 30%;
+    margin: 20px 8px;
+    border: 2px dashed;
     display: flex;
     flex-flow: column nowrap;
-    width: 30%;
-    border: 2px dashed;
-    margin: 20px 8px;
-} 
-
-.card h2 {
-    border: 2px solid var(--font-color-1);
-    border-radius: 5px;
-    margin: -15px 10px 0px 10px;
-    padding-left: 10px;
-    background-color: var(--background-color);
+    font-weight: 800;
+    background: var(--card-background-color);
+    color: var(--card-text-font-color);
 }
 
+/* upon hovering over a card rotate for visual effect */
+.card:hover {
+    transform: translate(30px, 20px) rotate(20deg);
+}
+
+/* set the margin of the heading to overlap the border of the parent container. Also set the background color and border. */
+.card h2 {
+    margin: -15px 10px 0px 10px;
+    padding-left: 10px;
+    border: 2px solid var(--card-border-color);
+    border-radius: 5px;
+    background: var(--card-h2-background-color);
+}
+
+/* set the margin of the CSS snippet desription */
 .card p {
     font-size: .85em;
     margin: 10px 15px 5px 15px;
 }
 
+/* make the <pre> tag a flex container, center the text, and allow the text to wrap. Take up the remaining free space of the parent container */
 .card pre {
+    margin: 10px 15px 15px 15px;
+    padding: 8px 10px 8px 10px;
+    border :1px solid var(--card-border-color);
+    border-radius: 5px;
     font-size: .9em;
     flex: 100%;
     display: flex;
     align-items: center;
-    border :1px solid black;
-    border-radius: 5px;
-    margin: 10px 15px 15px 15px;
-    padding: 8px 10px 8px 10px;
     /* wraps text in pre tags. Sequences of white space are preserved. Lines are only broken at newline characters in the source */
     white-space: pre-wrap;
     /* highlights entire text upon click, which is used to easily copy CSS code snippet to clipboard */
     user-select: all;
+    overflow: auto;
+    background: var(--card-pre-background-gradient);
+    box-shadow: 5px 5px;
 } 
 
+/* center the text */
 .footer {
     text-align: center;
     margin-top: 10px;
+}
+
+/* change the appearance of the page to fit tablet size devices */
+@media screen and (max-width: 992px) {
+    body {
+        color: var(--body-text-font-color-2);
+        background: var(--body-background-gradient-2);
+    }
+    
+    .card {
+        flex: 1 1 40%;
+        background: var(--card-background-color-2);
+        color: var(--card-text-font-color-2);
+    }
+
+    .card h2 {
+        border: 2px solid var(--card-border-color-2);
+        background: var(--card-h2-background-color-2);
+    }
+    
+    .card pre {
+        border :1px solid var(--card-border-color-2);
+        background: var(--card-pre-background-gradient-2);
+        color: black;
+    }
+}
+
+/* change the appearance of the page to fit mobile  size devices */
+@media screen and (max-width: 768px) {
+    body {
+        color: var(--body-text-font-color-3);
+        background: var(--body-background-gradient-3);
+    }
+    
+    .card {
+        flex: 1 1 60%;
+        background: var(--card-background-color-3);
+        color: var(--card-text-font-color-3);
+    }
+
+    .card h2 {
+        border: 2px solid var(--card-border-color-3);
+        background: var(--card-h2-background-color-3);
+    }
+    
+    .card pre {
+        border :1px solid var(--card-border-color-2);
+        background: var(--card-pre-background-gradient-3);
+    }
 }
