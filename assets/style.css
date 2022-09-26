@@ -34,15 +34,17 @@
     padding: 0;
 }
 
-/* reset the font family, font size, and spacing between lines, for entire document */
+
 html {
+    height: 100%;
+}
+
+/* reset the font family, font size, and spacing between lines, for entire document */
+/* set background and text color for document */
+body {
     font-size: 16px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.2;
-}
-
-/* set background and text color for document */
-body {
     margin: 0 15px;
     color: var(--body-text-font-color);
     background: var(--body-background-gradient);
@@ -58,29 +60,26 @@ body {
 
 /* set the width and center the page instructions */
 .header p {
-    max-width: 70%;
+    width: 70%;
     margin-top: 20px;
-    font-size: .85em;
+    font-size: .80em;
     font-weight: 550;
     font-style: italic;
 }
 
-/* Make the section a flex container, laid out in a row and centered */
+/* Make the section a flex container, laid out in a row  */
 .card-container {
-    margin: 30px 0 15px 15px;
+    margin: 50px 0 15px 15px;
     padding: 10px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
 }
 
 /* make the section a flex container, laid out in a column and change appearance of the border.  */
 .card {
-    flex: 1 1 30%;
-    /* guarantee the min width, preventing unintentional wrapping */
-    min-width: 30%;
+    flex: 30%;
     margin: 20px 8px;
-    border: 2px dashed;
+    border: 2px dashed var(--card-border-color);
     border-radius: 25px;
     display: flex;
     flex-flow: column nowrap;
@@ -107,6 +106,7 @@ body {
 .card p {
     font-size: .85em;
     margin: 10px 15px 5px 15px;
+    font-weight: 100;
 }
 
 /* make the <pre> tag a flex container, center the text, and allow the text to wrap. Take up the remaining free space of the parent container */
@@ -123,7 +123,6 @@ body {
     white-space: pre-wrap;
     /* highlights entire text upon click, which is used to easily copy CSS code snippet to clipboard */
     user-select: all;
-    overflow: auto;
     background: var(--card-pre-background-gradient);
     box-shadow: 5px 5px;
 } 
@@ -131,7 +130,7 @@ body {
 /* center the text */
 .footer {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 70px;
 }
 
 /* change the appearance of the page to fit tablet size devices */
@@ -142,9 +141,10 @@ body {
     }
     
     .card {
-        flex: 1 1 40%;
+        flex: 40%;
         background: var(--card-background-color-2);
         color: var(--card-text-font-color-2);
+        border: 2px dashed var(--card-border-color-2);
     }
 
     .card h2 {
@@ -167,9 +167,10 @@ body {
     }
     
     .card {
-        flex: 1 1 60%;
+        flex: 60%;
         background: var(--card-background-color-3);
         color: var(--card-text-font-color-3);
+        border: 2px dashed var(--card-border-color-3);
     }
 
     .card h2 {
@@ -178,7 +179,7 @@ body {
     }
     
     .card pre {
-        border :1px solid var(--card-border-color-2);
+        border: 1px solid var(--card-border-color-2);
         background: var(--card-pre-background-gradient-3);
     }
 }
